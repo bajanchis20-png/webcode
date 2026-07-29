@@ -86,16 +86,17 @@
     </div>
   </nav>
 
+  <!-- Menú Desplegable Móvil con el botón más cerca de los enlaces -->
   {#if menuOpen}
-    <div class="fixed inset-0 top-[44px] bg-white z-40 px-6 py-8 font-sans md:hidden flex flex-col justify-between pb-10 border-t border-[#d2d2d7]">
-      <div class="flex flex-col space-y-2">
+    <div class="fixed left-0 top-[44px] w-full h-[calc(100vh-44px)] bg-white z-40 px-6 py-8 font-sans md:hidden flex flex-col overflow-y-auto border-t border-[#d2d2d7]">
+      <div class="flex flex-col space-y-4 mb-8">
         <a href="/" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Inicio</a>
         <a href="#servicios" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Servicios</a>
         <a href="#proyectos" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Proyectos</a>
         <a href="#contacto" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Contacto</a>
       </div>
 
-      <div class="mt-auto pt-8 animate-btn-in">
+      <div class="animate-btn-in">
         <a 
           href="#contacto" 
           onclick={toggleMenu} 
