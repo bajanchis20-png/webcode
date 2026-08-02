@@ -81,6 +81,72 @@
   </div>
 </section>
 
+<!-- Nueva Sección: Proyectos Recientes (Casos de Éxito) -->
+<section class="py-20 px-4 bg-[#f5f5f7] text-[#1d1d1f] font-sans border-t border-[#d2d2d7]">
+  <div class="max-w-[1200px] mx-auto text-center">
+    <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Resultados Reales</span>
+    <h2 class="text-3xl md:text-5xl font-semibold mt-2 mb-4 tracking-tight">
+      Nuestros primeros proyectos
+    </h2>
+    <p class="text-[#86868b] text-base md:text-lg max-w-2xl mx-auto mb-16 font-normal">
+      Sitios web reales desarrollados con dedicación, velocidad y un estándar visual de alta gama.
+    </p>
+
+    <!-- Grid de Proyectos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
+      
+      <!-- Proyecto 1: Agrovenz -->
+      <div class="bg-[#fbfbfd] p-8 rounded-3xl flex flex-col justify-between shadow-sm border border-[#e5e5ea] hover:shadow-md transition-shadow">
+        <div>
+          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Plataforma Agroindustrial</span>
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-[#1d1d1f]">agrovenz.com</h3>
+          <p class="text-sm text-[#86868b] mb-6 leading-relaxed">
+            Diseño corporativo estructurado para transmitir solidez, optimizado para una navegación clara y rápida de sus productos y servicios.
+          </p>
+        </div>
+        <div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#e5e5ea]">
+            <span class="text-xs text-[#86868b]">Desarrollo a medida</span>
+            <a 
+              href="https://agrovenz.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-sm font-medium text-[#0071e3] hover:underline flex items-center gap-1"
+            >
+              Visitar sitio &gt;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: Ebgamingshop -->
+      <div class="bg-[#fbfbfd] p-8 rounded-3xl flex flex-col justify-between shadow-sm border border-[#e5e5ea] hover:shadow-md transition-shadow">
+        <div>
+          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">E-commerce / Tienda Online</span>
+          <h3 class="text-2xl font-semibold mt-2 mb-2 text-[#1d1d1f]">ebgamingshop.com</h3>
+          <p class="text-sm text-[#86868b] mb-6 leading-relaxed">
+            Tienda virtual interactiva enfocada en la experiencia de compra de los usuarios, con catálogos dinámicos y un flujo de navegación limpio.
+          </p>
+        </div>
+        <div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#e5e5ea]">
+            <span class="text-xs text-[#86868b]">Tienda Online</span>
+            <a 
+              href="https://ebgamingshop.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-sm font-medium text-[#0071e3] hover:underline flex items-center gap-1"
+            >
+              Visitar sitio &gt;
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- Nueva Sección Estilo Grid Doble (Estilo Promoción de Productos Apple) -->
 <section class="py-12 px-4 bg-[#f5f5f7] text-[#1d1d1f] font-sans border-t border-[#d2d2d7]">
   <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
