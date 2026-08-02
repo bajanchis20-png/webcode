@@ -118,9 +118,6 @@
           <a href="https://wa.me/584149430559?text=Hola,%20quiero%20más%20información%20sobre%20el%20dominio%20y%20hosting." target="_blank" rel="noopener noreferrer" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium px-4 py-1.5 rounded-full transition-all">
             Más información
           </a>
-          <a href="https://wa.me/584149430559?text=Hola,%20quiero%20comprar%20el%20paquete%20con%20dominio%20y%20hosting." target="_blank" rel="noopener noreferrer" class="text-[#0066cc] hover:underline text-sm font-medium flex items-center">
-            Comprar &gt;
-          </a>
         </div>
       </div>
       <div class="w-full max-w-[500px] mt-4 transform hover:scale-[1.02] transition-transform duration-500">
