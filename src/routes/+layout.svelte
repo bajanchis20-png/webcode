@@ -16,20 +16,20 @@
 
 <style>
     @keyframes fade-in-down {
-        0% { opacity: 0; transform: translateY(-10px); }
+        0% { opacity: 0; transform: translateY(-8px); }
         100% { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in-down {
-        animation: fade-in-down 0.4s ease-out forwards;
+        animation: fade-in-down 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
     }
-    .animate-fade-in-down:nth-child(1) { animation-delay: 0.05s; }
-    .animate-fade-in-down:nth-child(2) { animation-delay: 0.10s; }
-    .animate-fade-in-down:nth-child(3) { animation-delay: 0.15s; }
-    .animate-fade-in-down:nth-child(4) { animation-delay: 0.20s; }
+    .animate-fade-in-down:nth-child(1) { animation-delay: 0.04s; }
+    .animate-fade-in-down:nth-child(2) { animation-delay: 0.08s; }
+    .animate-fade-in-down:nth-child(3) { animation-delay: 0.12s; }
+    .animate-fade-in-down:nth-child(4) { animation-delay: 0.16s; }
     
     .animate-btn-in {
-        animation: fade-in-down 0.4s ease-out 0.25s forwards;
+        animation: fade-in-down 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
         opacity: 0;
     }
 </style>
@@ -38,124 +38,132 @@
     <link rel="icon" href={favicon} />
 </svelte:head>
 
-<header class="sticky top-0 z-50 bg-[rgba(255,255,255,0.8)] backdrop-blur-md border-b border-[#d2d2d7] text-[#1d1d1f] font-sans transition-all">
-  <nav class="max-w-[1024px] mx-auto px-4 h-11 flex items-center justify-between text-[12px] font-normal tracking-[-0.01em]">
+<!-- Header Corporativo Estilizado -->
+<header class="sticky top-0 z-50 bg-[#0b0f19]/85 backdrop-blur-md border-b border-white/[0.06] text-white font-sans transition-all">
+  <nav class="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between text-[13px] font-normal tracking-[-0.01em]">
     
-    <a href="/" class="flex items-center opacity-90 hover:opacity-100 transition-opacity py-1">
-      <img src="/logo.png" alt="Logo" class="h-[21px] w-auto object-contain" />
+    <!-- Logo Institucional -->
+    <a href="/" class="flex items-center opacity-95 hover:opacity-100 transition-opacity py-1">
+      <img src="/logo.png" alt="Logo Corporativo" class="h-7 w-auto object-contain brightness-200" />
     </a>
     
-    <div class="hidden md:flex items-center space-x-9 text-[#1d1d1f]">
-      <a href="/" class="hover:text-[#0066cc] transition-colors">Inicio</a>
-      <a href="#servicios" class="hover:text-[#0066cc] transition-colors">Servicios</a>
-      <a href="#proyectos" class="hover:text-[#0066cc] transition-colors">Proyectos</a>
-      <a href="#contacto" class="hover:text-[#0066cc] transition-colors">Contacto</a>
+    <!-- Navegación de Escritorio -->
+    <div class="hidden md:flex items-center space-x-9 text-slate-300 font-medium">
+      <a href="/" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#paquetes" class="hover:text-white transition-colors">Servicios</a>
+      <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
     </div>
 
+    <!-- Acciones de Escritorio -->
     <div class="hidden md:flex items-center space-x-6">
-      <a href="#contacto" class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-3 py-1 rounded-full text-[11px] font-medium transition-all">
+      <a 
+        href="https://wa.me/584149430559?text=Hola,%20quiero%20solicitar%20mi%20propuesta%20inicial%20gratuita." 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-4 py-2 rounded-full text-[12px] font-semibold transition-all active:scale-95"
+      >
         Comenzar
       </a>
-      <a href="#carrito" aria-label="Bolsa de compra" class="text-[#1d1d1f] hover:text-[#0066cc] transition-colors">
-        <Icon icon="lucide:shopping-bag" width="16" height="16" />
+      <a href="#paquetes" aria-label="Planes y Paquetes" class="text-slate-300 hover:text-white transition-colors p-1">
+        <Icon icon="lucide:shopping-bag" width="18" height="18" />
       </a>
     </div>
 
+    <!-- Controles Móviles -->
     <div class="flex items-center space-x-4 md:hidden">
-      <a href="#carrito" aria-label="Bolsa de compra" class="text-[#1d1d1f] hover:text-[#0066cc] transition-colors">
-        <Icon icon="lucide:shopping-bag" width="16" height="16" />
+      <a href="#paquetes" aria-label="Planes y Paquetes" class="text-slate-300 hover:text-white transition-colors p-1">
+        <Icon icon="lucide:shopping-bag" width="18" height="18" />
       </a>
 
       <button 
         onclick={toggleMenu} 
-        class="flex items-center justify-center w-6 h-6 -mr-1 focus:outline-none z-50 group" 
+        class="flex items-center justify-center w-8 h-8 focus:outline-none z-50" 
         aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
       >
-        <div class="relative w-4 h-3 transition-transform duration-300 {menuOpen ? 'rotate-[135deg]' : ''}">
-          <span 
-            class="absolute block h-[1.5px] w-full bg-[#1d1d1f] rounded-full transform transition-all duration-300 ease-in-out top-0 {menuOpen ? 'rotate-90 top-[5px]' : ''}"
-          ></span>
-          <span 
-            class="absolute block h-[1.5px] w-full bg-[#1d1d1f] rounded-full transform transition-all duration-300 ease-in-out top-[5px] {menuOpen ? 'top-[5px] opacity-0' : ''}"
-          ></span>
-          <span 
-            class="absolute block h-[1.5px] w-full bg-[#1d1d1f] rounded-full transform transition-all duration-300 ease-in-out top-[10px] {menuOpen ? 'top-[5px]' : ''}"
-          ></span>
+        <div class="relative w-5 h-4 transition-transform duration-300 {menuOpen ? 'rotate-[135deg]' : ''}">
+          <span class="absolute block h-[1.5px] w-full bg-white rounded-full transition-all duration-300 top-0 {menuOpen ? 'rotate-90 top-[7px]' : ''}"></span>
+          <span class="absolute block h-[1.5px] w-full bg-white rounded-full transition-all duration-300 top-[7px] {menuOpen ? 'opacity-0' : ''}"></span>
+          <span class="absolute block h-[1.5px] w-full bg-white rounded-full transition-all duration-300 top-[14px] {menuOpen ? 'top-[7px]' : ''}"></span>
         </div>
       </button>
     </div>
   </nav>
 
-  <!-- Menú Desplegable Móvil con el botón más cerca de los enlaces -->
+  <!-- Menú Desplegable Móvil -->
   {#if menuOpen}
-    <div class="fixed left-0 top-[44px] w-full h-[calc(100vh-44px)] bg-white z-40 px-6 py-8 font-sans md:hidden flex flex-col overflow-y-auto border-t border-[#d2d2d7]">
-      <div class="flex flex-col space-y-4 mb-8">
-        <a href="/" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Inicio</a>
-        <a href="#servicios" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Servicios</a>
-        <a href="#proyectos" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Proyectos</a>
-        <a href="#contacto" onclick={toggleMenu} class="block text-4xl font-semibold text-[#1d1d1f] py-2 animate-fade-in-down">Contacto</a>
+    <div class="fixed left-0 top-16 w-full h-[calc(100vh-4rem)] bg-[#0b0f19] z-40 px-8 py-10 font-sans md:hidden flex flex-col justify-between border-t border-white/[0.06]">
+      <div class="flex flex-col space-y-6 pt-2">
+        <a href="/" onclick={toggleMenu} class="block text-2xl font-medium text-white py-1 animate-fade-in-down">Inicio</a>
+        <a href="#paquetes" onclick={toggleMenu} class="block text-2xl font-medium text-slate-300 py-1 animate-fade-in-down">Servicios</a>
+        <a href="#proyectos" onclick={toggleMenu} class="block text-2xl font-medium text-slate-300 py-1 animate-fade-in-down">Proyectos</a>
+        <a href="#contacto" onclick={toggleMenu} class="block text-2xl font-medium text-slate-300 py-1 animate-fade-in-down">Contacto</a>
       </div>
 
-      <div class="animate-btn-in">
+      <div class="animate-btn-in pb-6">
         <a 
-          href="#contacto" 
+          href="https://wa.me/584149430559?text=Hola,%20quiero%20solicitar%20mi%20propuesta%20inicial%20gratuita." 
+          target="_blank"
+          rel="noopener noreferrer"
           onclick={toggleMenu} 
-          class="w-full block text-center bg-[#0071e3] text-white py-4 rounded-2xl font-medium text-lg shadow-lg transform transition-all duration-500 ease-out"
+          class="w-full block text-center bg-[#0071e3] hover:bg-[#0077ed] text-white py-3.5 rounded-xl font-medium text-base transition-all"
         >
-          Comenzar
+          Comenzar Ahora
         </a>
       </div>
     </div>
   {/if}
 </header>
 
-<main class="min-h-screen bg-white text-[#1d1d1f] font-normal font-sans">
+<main class="min-h-screen bg-[#0b0f19] text-white font-normal font-sans selection:bg-[#0071e3] selection:text-white">
     {@render children()}
 </main>
 
-<footer class="bg-[#f5f5f7] text-[#86868b] text-[11px] font-normal leading-relaxed border-t border-[#d2d2d7] font-sans">
-  <div class="max-w-[1024px] mx-auto px-4 py-8">
-    <div class="border-b border-[#d2d2d7] pb-6 mb-6">
-      <p class="text-[#86868b] text-[11px] leading-normal">
-        Diseñamos y desarrollamos páginas web profesionales con altos estándares de rendimiento y diseño para impulsar tu negocio al siguiente nivel. Cada proyecto se adapta de forma única a los estándares visuales más exigentes del mercado actual.
-      </p>
-    </div>
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-      <div>
-        <h4 class="text-[#1d1d1f] font-semibold mb-3 text-[12px]">Servicios</h4>
-        <ul class="space-y-2">
-          <li><a href="#servicios" class="hover:text-[#1d1d1f] transition-colors">Desarrollo Web</a></li>
-          <li><a href="#servicios" class="hover:text-[#1d1d1f] transition-colors">E-commerce</a></li>
-          <li><a href="#servicios" class="hover:text-[#1d1d1f] transition-colors">Optimización UI/UX</a></li>
-        </ul>
+<!-- Footer Corporativo de Alto Nivel -->
+<footer class="bg-[#07090f] text-slate-400 text-[12px] font-normal leading-relaxed border-t border-white/[0.06] font-sans">
+  <div class="max-w-[1120px] mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/[0.06]">
+      
+      <!-- Columna de Marca -->
+      <div class="md:col-span-5 space-y-4">
+        <img src="/logo.png" alt="Logo Corporativo" class="h-6 w-auto object-contain brightness-200 opacity-90" />
+        <p class="text-slate-400 text-[13px] leading-relaxed max-w-sm">
+          Soluciones de ingeniería y desarrollo web de alta gama. Optimizamos la presencia digital de empresas exigentes bajo rigurosos estándares de rendimiento, estética y conversión.
+        </p>
       </div>
-      <div>
-        <h4 class="text-[#1d1d1f] font-semibold mb-3 text-[12px]">Empresa</h4>
-        <ul class="space-y-2">
-          <li><a href="#proyectos" class="hover:text-[#1d1d1f] transition-colors">Casos de Éxito</a></li>
-          <li><a href="#contacto" class="hover:text-[#1d1d1f] transition-colors">Contacto</a></li>
-        </ul>
+
+      <!-- Enlaces de Navegación -->
+      <div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-[13px]">Servicios</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#paquetes" class="hover:text-white transition-colors">Desarrollo Web</a></li>
+            <li><a href="#paquetes" class="hover:text-white transition-colors">E-commerce</a></li>
+            <li><a href="#paquetes" class="hover:text-white transition-colors">Arquitectura UI/UX</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-[13px]">Compañía</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#proyectos" class="hover:text-white transition-colors">Casos de Éxito</a></li>
+            <li><a href="#contacto" class="hover:text-white transition-colors">Soporte Directo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-[13px]">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/" class="hover:text-white transition-colors">Privacidad</a></li>
+            <li><a href="/" class="hover:text-white transition-colors">Términos de Servicio</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4 class="text-[#1d1d1f] font-semibold mb-3 text-[12px]">Recursos</h4>
-        <ul class="space-y-2">
-          <li><a href="/" class="hover:text-[#1d1d1f] transition-colors">Soporte Técnico</a></li>
-          <li><a href="/" class="hover:text-[#1d1d1f] transition-colors">Documentación</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-[#1d1d1f] font-semibold mb-3 text-[12px]">Legal</h4>
-        <ul class="space-y-2">
-          <li><a href="/" class="hover:text-[#1d1d1f] transition-colors">Privacidad</a></li>
-          <li><a href="/" class="hover:text-[#1d1d1f] transition-colors">Términos de uso</a></li>
-        </ul>
-      </div>
+
     </div>
 
-    <div class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-[#d2d2d7] text-[#86868b]">
-      <p>Copyright © 2026. Todos los derechos reservados.</p>
-      <p class="mt-2 md:mt-0">Desarrollo web profesional.</p>
+    <!-- Pie de página inferior -->
+    <div class="flex flex-col sm:flex-row justify-between items-center pt-8 text-slate-500 text-[12px] gap-4">
+      <p>© 2026. Todos los derechos reservados.</p>
+      <p>Excelencia técnica y diseño orientado a resultados.</p>
     </div>
   </div>
 </footer>
