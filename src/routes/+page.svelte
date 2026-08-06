@@ -94,6 +94,45 @@ let nombre = $state('');
   </div>
 </section>
 
+<section class="py-24 px-4 bg-white text-slate-900 font-sans border-t border-slate-200">
+  <div class="max-w-[1100px] mx-auto text-center">
+    
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-slate-900">
+      Ingeniería de vanguardia en cada detalle.
+    </h2>
+    <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-16 font-normal">
+      No solo creamos páginas bonitas; construimos activos digitales ultra rápidos, seguros y preparados para escalar.
+    </p>
+
+    <!-- Grid de características minimalista -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Rendimiento</span>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Velocidad extrema</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Arquitectura optimizada para asegurar tiempos de carga casi instantáneos y retener a tus visitantes.</p>
+        </div>
+      </div>
+
+      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Diseño UI/UX</span>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Estética impecable</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Interfaces limpias y profesionales inspiradas en los más altos estándares visuales del mercado global.</p>
+        </div>
+      </div>
+
+      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Escalabilidad</span>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Preparados para crecer</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Bases sólidas que evolucionan fluidamente al mismo ritmo que el crecimiento de tu marca o negocio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Sección de Autoridad: Proyectos Reales (Casos de Éxito) -->
 <section id="proyectos" class="py-24 px-4 bg-[#f8fafc] text-slate-900 font-sans border-b border-slate-200">
   <div class="max-w-[1200px] mx-auto text-center">
@@ -346,45 +385,8 @@ let nombre = $state('');
 </section>
 
 <!-- Sección de Beneficios / Ingeniería de Vanguardia -->
-<section class="py-24 px-4 bg-white text-slate-900 font-sans border-t border-slate-200">
-  <div class="max-w-[1100px] mx-auto text-center">
-    
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-slate-900">
-      Ingeniería de vanguardia en cada detalle.
-    </h2>
-    <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-16 font-normal">
-      No solo creamos páginas bonitas; construimos activos digitales ultra rápidos, seguros y preparados para escalar.
-    </p>
 
-    <!-- Grid de características minimalista -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Rendimiento</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Velocidad extrema</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Arquitectura optimizada para asegurar tiempos de carga casi instantáneos y retener a tus visitantes.</p>
-        </div>
-      </div>
 
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Diseño UI/UX</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Estética impecable</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Interfaces limpias y profesionales inspiradas en los más altos estándares visuales del mercado global.</p>
-        </div>
-      </div>
-
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Escalabilidad</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Preparados para crecer</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Bases sólidas que evolucionan fluidamente al mismo ritmo que el crecimiento de tu marca o negocio.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Sección Formulario Interactivo de Cotización -->
 <section id="contacto" class="py-24 px-4 bg-[#0b0f19] text-white font-sans relative overflow-hidden">
   
   <!-- Efectos de luz ambiental sutiles -->
