@@ -1,8 +1,9 @@
 <script lang="ts">
-let nombre = $state('');
+    let nombre = $state('');
     let negocio = $state('');
     let tipoWeb = $state('Landing Page');
     let descripcion = $state('');
+    let dominioBusqueda = $state('');
 
     function enviarWhatsApp(e: Event) {
         e.preventDefault();
@@ -17,70 +18,81 @@ let nombre = $state('');
         const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
     }
+
+    function buscarDominioWhatsApp(e: Event) {
+        e.preventDefault();
+        if (!dominioBusqueda.trim()) return;
+
+        const telefono = '584149430559';
+        const mensaje = `Hola, me interesa consultar la disponibilidad del dominio "${dominioBusqueda}" para mi sitio web.`;
+
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, '_blank');
+    }
     // Puedes importar componentes adicionales aquí si lo deseas
 </script>
 
-<section class="bg-[#0b0f19] text-white pt-16 sm:pt-20 md:pt-24 pb-28 sm:pb-32 md:pb-40 px-4 sm:px-6 lg:px-8 text-center font-sans relative overflow-hidden">
+<section class="bg-[#0b0f19] text-white pt-16 sm:pt-24 md:pt-28 pb-32 sm:pb-36 md:pb-44 px-4 sm:px-6 lg:px-8 text-center font-sans relative overflow-hidden">
   
-  <!-- Video como fondo responsive de toda la sección -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
+  <!-- Video como fondo responsive y optimizado -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <video 
       src="/slogan.mp4" 
       autoplay 
       loop 
       muted 
       playsinline 
-      class="w-full h-full object-cover opacity-60 filter blur-[1px] scale-105"
+      class="w-full h-full object-cover opacity-40 sm:opacity-50 filter blur-[1px] scale-105"
     ></video>
-    <!-- Capa oscura sutil para mantener el contraste adaptable -->
-    <div class="absolute inset-0 bg-[#0b0f19]/70"></div>
+    <!-- Capa oscura degradada profesional con profundidad -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0b0f19]/90 via-[#0b0f19]/80 to-[#0b0f19]"></div>
   </div>
 
-  <!-- Efectos de luz ambiental optimizados y adaptados a pantallas móviles -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[280px] sm:w-[450px] md:w-[600px] h-[180px] sm:h-[280px] md:h-[350px] bg-gradient-to-tr from-[#0071e3]/15 to-[#38bdf8]/15 blur-[90px] sm:blur-[120px] md:blur-[140px] pointer-events-none rounded-full z-1"></div>
+  <!-- Efectos de luz ambiental refinados y elegantes -->
+  <div class="absolute top-12 left-1/2 -translate-x-1/2 w-[280px] sm:w-[500px] md:w-[650px] h-[160px] sm:h-[300px] md:h-[380px] bg-gradient-to-tr from-[#0071e3]/15 to-[#38bdf8]/15 blur-[100px] sm:blur-[140px] md:blur-[160px] pointer-events-none rounded-full z-1"></div>
 
   <div class="max-w-[1100px] mx-auto flex flex-col items-center relative z-10 w-full">
     
-    <!-- Título Principal con escala fluida y responsive extrema -->
-    <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-[1.2] sm:leading-[1.18] md:leading-[1.15] max-w-5xl px-1 sm:px-0">
-      Tu negocio merece una presencia digital <br class="hidden sm:inline" />
-      <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">diseñada para vender 24/7.</span>
+    <!-- Título Principal optimizado, 100% en mayúsculas, corporativo y de alto impacto -->
+    <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold tracking-tight text-white mb-5 sm:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1] max-w-5xl px-0 sm:px-2 uppercase">
+      CREAMOS TU PÁGINA WEB <br class="hidden sm:inline" />
+      <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent inline-block mt-1 sm:mt-0">DISEÑADA PARA VENDER 24/7.</span>
     </h1>
 
-    <!-- Subtítulo descriptivo con tamaño adaptable -->
-    <p class="text-sm sm:text-base md:text-xl font-normal text-slate-300 max-w-2xl mb-8 sm:mb-10 leading-relaxed drop-shadow-md px-2 sm:px-0">
+    <!-- Subtítulo descriptivo con jerarquía limpia y seria -->
+    <p class="text-base sm:text-lg md:text-xl font-normal text-slate-300 max-w-2xl mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
       Arquitectura web minimalista de alta gama, velocidad de carga óptima y experiencia de usuario impecable. Impulsamos tu marca con máxima seguridad y transparencia operativa.
     </p>
 
-    <!-- CTAs Principales con diseño 100% responsive y adaptados a touch targets -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-md mb-10 sm:mb-16 px-2 sm:px-0">
+    <!-- CTAs Principales con diseño corporativo mate y profesional -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md mb-12 sm:mb-16 px-2 sm:px-0">
       <a 
         href="#contacto" 
-        class="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center shadow-lg shadow-blue-500/10"
+        class="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium text-base px-7 sm:px-8 py-4 rounded-xl transition-all duration-300 text-center shadow-lg shadow-blue-500/10"
       >
         Solicitar Propuesta Gratis
       </a>
       <a 
         href="#paquetes" 
-        class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white font-medium text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl transition-all duration-300 border border-white/15 backdrop-blur-sm text-center"
+        class="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white font-medium text-base px-7 sm:px-7 py-4 rounded-xl transition-all duration-300 border border-white/15 backdrop-blur-md text-center"
       >
         Ver Paquetes y Tarifas
       </a>
     </div>
 
-    <!-- Barra de Métricas y Respaldo Institucional adaptable -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-3xl w-full pt-6 sm:pt-8 md:pt-10 border-t border-white/15 text-center bg-[#0b0f19]/40 backdrop-blur-sm p-3.5 sm:p-5 md:p-6 rounded-2xl shadow-inner mx-auto">
-      <div class="space-y-1">
-        <div class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-white drop-shadow-sm">100%</div>
-        <div class="text-[11px] sm:text-xs md:text-sm text-slate-300 font-medium">Responsive & Mobile-First</div>
+    <!-- Barra de Métricas y Respaldo Institucional estructurada sin cortes móviles -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 max-w-3xl w-full pt-6 sm:pt-8 md:pt-10 border-t border-white/15 text-center bg-[#0b0f19]/60 backdrop-blur-md p-4 sm:p-5 md:p-6 rounded-2xl border border-white/10 mx-auto shadow-xl">
+      <div class="space-y-1 py-1 sm:py-0">
+        <div class="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">100%</div>
+        <div class="text-xs sm:text-xs md:text-sm text-slate-300 font-medium">Responsive & Mobile-First</div>
       </div>
-      <div class="space-y-1">
-        <div class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-white drop-shadow-sm">Incluido</div>
-        <div class="text-[11px] sm:text-xs md:text-sm text-slate-300 font-medium">Dominio y Hosting (1 Año)</div>
+      <div class="space-y-1 py-1 sm:py-0 border-t sm:border-t-0 sm:border-x border-white/10">
+        <div class="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">Incluido</div>
+        <div class="text-xs sm:text-xs md:text-sm text-slate-300 font-medium">Dominio y Hosting (1 Año)</div>
       </div>
-      <div class="col-span-2 md:col-span-1 space-y-1">
-        <div class="text-lg sm:text-2xl md:text-3xl font-bold tracking-tight text-white drop-shadow-sm">50% / 50%</div>
-        <div class="text-[11px] sm:text-xs md:text-sm text-slate-300 font-medium">Esquema de Pago Seguro</div>
+      <div class="space-y-1 py-1 sm:py-0 border-t sm:border-t-0 border-white/10 sm:border-none">
+        <div class="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">50% / 50%</div>
+        <div class="text-xs sm:text-xs md:text-sm text-slate-300 font-medium">Esquema de Pago Seguro</div>
       </div>
     </div>
 
@@ -88,9 +100,45 @@ let nombre = $state('');
 
   <!-- Curva inferior decorativa de color blanco -->
   <div class="absolute bottom-0 left-0 right-0 overflow-hidden leading-none z-20 pointer-events-none">
-    <svg class="relative block w-full h-12 sm:h-20 md:h-28 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <svg class="relative block w-full h-14 sm:h-20 md:h-28 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M0,0 C300,90 900,90 1200,0 L1200,120 L0,120 Z" fill="currentColor"></path>
     </svg>
+  </div>
+</section>
+
+<!-- Sección de Buscador de Dominio adaptada a la paleta corporativa oscura (#0b0f19 y #0071e3) -->
+<section class="py-20 px-4 bg-[#0b0f19] text-white font-sans text-center border-b border-slate-800">
+  <div class="max-w-[850px] mx-auto">
+    
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white">
+      Obtén un dominio propio <br class="hidden sm:inline" /> para tu sitio web
+    </h2>
+    <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-10 font-normal">
+      Verifica la disponibilidad de tu marca en internet al instante.
+    </p>
+    
+    <!-- Formulario de búsqueda con estilo integrado a la web -->
+    <form onsubmit={buscarDominioWhatsApp} class="mt-4 mb-4 max-w-[720px] mx-auto bg-[#121826] p-2 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-center shadow-2xl border border-white/10 gap-2 sm:gap-0">
+      <input 
+        type="text" 
+        bind:value={dominioBusqueda}
+        placeholder="Ingresa tu dominio ideal (ej. miempresa.com)" 
+        required
+        class="w-full sm:w-auto flex-grow bg-transparent px-6 py-4 text-white placeholder-slate-500 text-base focus:outline-none"
+      />
+      <button 
+        type="submit"
+        class="w-full sm:w-auto bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-base px-8 py-4 rounded-xl sm:rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+      >
+        <span>Buscar</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+    </form>
+
+    <p class="text-xs sm:text-sm text-slate-400 font-normal mt-4">
+      Obtén un <span class="text-slate-200 underline underline-offset-2">dominio web</span> gratis durante un año con la compra de algun paquete con nosotros.
+    </p>
+
   </div>
 </section>
 
@@ -104,31 +152,45 @@ let nombre = $state('');
       No solo creamos páginas bonitas; construimos activos digitales ultra rápidos, seguros y preparados para escalar.
     </p>
 
-    <!-- Grid de características minimalista -->
+    <!-- Grid de características profesional y con un toque dinámico -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
+      
+      <!-- Tarjeta 1: Rendimiento -->
+      <div class="group relative bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 hover:border-[#0066cc]/40">
+        <div class="absolute top-6 right-6 w-10 h-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#0066cc] group-hover:border-[#0066cc]/30 group-hover:rotate-12 transition-all duration-300 shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div class="pr-12">
           <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Rendimiento</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Velocidad extrema</h3>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900 group-hover:text-[#0066cc] transition-colors duration-300">Velocidad extrema</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Arquitectura optimizada para asegurar tiempos de carga casi instantáneos y retener a tus visitantes.</p>
         </div>
       </div>
 
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
+      <!-- Tarjeta 2: Diseño UI/UX -->
+      <div class="group relative bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 hover:border-[#0066cc]/40">
+        <div class="absolute top-6 right-6 w-10 h-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#0066cc] group-hover:border-[#0066cc]/30 group-hover:rotate-12 transition-all duration-300 shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="pr-12">
           <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Diseño UI/UX</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Estética impecable</h3>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900 group-hover:text-[#0066cc] transition-colors duration-300">Estética impecable</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Interfaces limpias y profesionales inspiradas en los más altos estándares visuales del mercado global.</p>
         </div>
       </div>
 
-      <div class="bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between">
-        <div>
+      <!-- Tarjeta 3: Escalabilidad -->
+      <div class="group relative bg-[#f8fafc] p-8 rounded-3xl border border-slate-200/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 hover:border-[#0066cc]/40">
+        <div class="absolute top-6 right-6 w-10 h-10 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 group-hover:text-[#0066cc] group-hover:border-[#0066cc]/30 group-hover:rotate-12 transition-all duration-300 shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        </div>
+        <div class="pr-12">
           <span class="text-xs font-semibold text-[#0066cc] uppercase tracking-wider">Escalabilidad</span>
-          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900">Preparados para crecer</h3>
+          <h3 class="text-xl font-bold mt-2 mb-3 text-slate-900 group-hover:text-[#0066cc] transition-colors duration-300">Preparados para crecer</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Bases sólidas que evolucionan fluidamente al mismo ritmo que el crecimiento de tu marca o negocio.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
