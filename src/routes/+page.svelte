@@ -44,7 +44,7 @@ let nombre = $state('');
     <!-- Título Principal con escala fluida y responsive extrema -->
     <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-[1.2] sm:leading-[1.18] md:leading-[1.15] max-w-5xl px-1 sm:px-0">
       Tu negocio merece una presencia digital <br class="hidden sm:inline" />
-      <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">diseñada para convertir 24/7.</span>
+      <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">diseñada para vender 24/7.</span>
     </h1>
 
     <!-- Subtítulo descriptivo con tamaño adaptable -->
