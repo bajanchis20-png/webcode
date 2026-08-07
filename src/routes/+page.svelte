@@ -384,7 +384,7 @@
     </p>
 
     <!-- Grid de Paquetes -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left items-stretch">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left items-stretch mb-12">
       
       <!-- Paquete 1: Landing Page -->
       <div class="bg-[#f8fafc] p-8 rounded-3xl flex flex-col justify-between border border-slate-200 hover:border-slate-300 transition-all">
@@ -457,6 +457,21 @@
       </div>
 
     </div>
+
+    <!-- Tarjeta de Educación / Cursos -->
+    <div class="bg-gradient-to-r from-slate-900 via-[#0066cc] to-slate-900 text-white p-8 md:p-10 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
+      <div class="text-left">
+        <span class="inline-block px-3 py-1 bg-white/10 text-blue-200 text-xs font-semibold uppercase tracking-wider rounded-full mb-2">
+          Academia Digital
+        </span>
+        <h3 class="text-xl md:text-2xl font-bold text-white">¿Quieres ganar dinero y aprender a hacer sitios web profesionales?</h3>
+        <p class="text-slate-200 text-sm mt-1">Domina las herramientas del mercado y monetiza tus habilidades desde cero.</p>
+      </div>
+      <a href="/educacion" class="whitespace-nowrap bg-white text-slate-900 hover:bg-slate-100 font-semibold text-sm px-8 py-3.5 rounded-full transition-colors shadow-md">
+        Ver Cursos
+      </a>
+    </div>
+
   </div>
 </section>
 

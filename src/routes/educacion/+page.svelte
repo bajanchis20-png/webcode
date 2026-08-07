@@ -163,6 +163,128 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 
   </div>
 </section>
+<section id="catalogo-cursos" class="py-24 px-4 bg-white text-slate-900 font-sans border-b border-slate-200 relative overflow-hidden">
+  <!-- Efectos de luz ambiental de alto rendimiento -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[radial-gradient(circle_at_center,rgba(0,113,227,0.08)_0%,transparent_70%)]"></div>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto text-center relative z-10">
+  
+    <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight text-slate-900 uppercase">
+      Elige tu nivel de formación
+    </h2>
+    <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-16 font-normal leading-relaxed">
+      Selecciona el plan que mejor se adapte a tus metas y comienza a crear páginas web profesionales hoy mismo.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
+      
+      <!-- Producto 1 -->
+      <div class="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 shadow-xl shadow-black/5 hover:shadow-2xl hover:border-[#0071e3]/40 transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
+            <video 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+            >
+              <source src="/slogan.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-[#0071e3] text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+              Más Popular
+            </span>
+          </div>
+
+          <span class="text-xs font-bold text-[#0071e3] uppercase tracking-wider">Acceso Grabado</span>
+          <h3 class="text-2xl font-black mt-1 mb-2 text-slate-900">Paquete Solo Videos</h3>
+          <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+            Ideal para estudiantes independientes, autodidactas o personas con presupuesto ajustado que prefieren aprender a su propio ritmo.
+          </p>
+
+          <div class="space-y-2 mb-8 text-sm text-slate-700 border-t border-slate-200 pt-4 font-medium">
+            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Acceso ilimitado a las lecciones en video grabadas</div>
+            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Código fuente de ejemplo y plantillas</div>
+            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Acceso a la comunidad de apoyo</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
+            <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
+            <span class="text-3xl font-black text-slate-900">$50 <span class="text-sm font-normal text-slate-500">USD</span></span>
+          </div>
+
+          <button 
+            type="button"
+            onclick={() => agregarAlCarrito('Paquete Solo Videos (Acceso Grabado)', 50, 'Curso')}
+            class="w-full bg-white hover:bg-[#0071e3] text-slate-900 hover:text-white font-bold text-sm py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-slate-300 hover:border-[#0071e3]"
+          >
+            <span>Agregar al carrito</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 shadow-xl shadow-black/5 hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group relative">
+        <div class="absolute -top-3.5 right-6 bg-amber-500 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+          Cupos Exclusivos
+        </div>
+
+        <div>
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
+            <video 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              autoplay 
+              muted 
+              loop 
+              playsinline
+            >
+              <source src="/agro.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+              VIP / Personalizado
+            </span>
+          </div>
+
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Acompañamiento Directo</span>
+          <h3 class="text-2xl font-black mt-1 mb-2 text-slate-900">Videos + Mentoría 1 a 1</h3>
+          <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+            Diseñado para acelerar tu curva de aprendizaje, resolver dudas técnicas específicas de inmediato y recibir retroalimentación directa sobre tus proyectos.
+          </p>
+
+          <div class="space-y-2 mb-8 text-sm text-slate-700 border-t border-slate-200 pt-4 font-medium">
+            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Todo el contenido del Paquete Solo Videos</div>
+            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Mentoría individual</div>
+            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Revisión de código personalizada y soporte prioritario por chat</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
+            <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
+            <span class="text-3xl font-black text-slate-900">$150 <span class="text-sm font-normal text-slate-500">USD</span></span>
+          </div>
+
+          <button 
+            type="button"
+            onclick={() => agregarAlCarrito('Videos + Mentoría 1 a 1 (VIP)', 150, 'Mentoría')}
+            class="w-full bg-gradient-to-r from-[#0071e3] via-blue-600 to-sky-500 hover:from-[#0066cc] hover:to-blue-500 text-white font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Agregar al carrito</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- SECCIÓN 1: ¿QUÉ APRENDERÁS? -->
 <section class="bg-white text-slate-900 py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-blue-500/25 relative overflow-hidden">
@@ -419,125 +541,3 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 </section>
 
 <!-- SECCIÓN 5: CATÁLOGO DE CURSOS CON CARRITO -->
-<section id="catalogo-cursos" class="py-24 px-4 bg-white text-slate-900 font-sans border-b border-slate-200 relative overflow-hidden">
-  <!-- Efectos de luz ambiental de alto rendimiento -->
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[radial-gradient(circle_at_center,rgba(0,113,227,0.08)_0%,transparent_70%)]"></div>
-  </div>
-
-  <div class="max-w-[1200px] mx-auto text-center relative z-10">
-  
-    <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight text-slate-900 uppercase">
-      Elige tu nivel de formación
-    </h2>
-    <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-16 font-normal leading-relaxed">
-      Selecciona el plan que mejor se adapte a tus metas y comienza a crear páginas web profesionales hoy mismo.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
-      
-      <!-- Producto 1 -->
-      <div class="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 shadow-xl shadow-black/5 hover:shadow-2xl hover:border-[#0071e3]/40 transition-all duration-300 flex flex-col justify-between group">
-        <div>
-          <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
-            <video 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-            >
-              <source src="/slogan.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 bg-[#0071e3] text-white text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-              Más Popular
-            </span>
-          </div>
-
-          <span class="text-xs font-bold text-[#0071e3] uppercase tracking-wider">Acceso Grabado</span>
-          <h3 class="text-2xl font-black mt-1 mb-2 text-slate-900">Paquete Solo Videos</h3>
-          <p class="text-sm text-slate-600 mb-6 leading-relaxed">
-            Ideal para estudiantes independientes, autodidactas o personas con presupuesto ajustado que prefieren aprender a su propio ritmo.
-          </p>
-
-          <div class="space-y-2 mb-8 text-sm text-slate-700 border-t border-slate-200 pt-4 font-medium">
-            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Acceso ilimitado a las lecciones en video grabadas</div>
-            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Código fuente de ejemplo y plantillas</div>
-            <div class="flex items-center gap-2"><span class="text-[#0071e3] font-bold">✓</span> Acceso a la comunidad de apoyo</div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
-            <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
-            <span class="text-3xl font-black text-slate-900">$50 <span class="text-sm font-normal text-slate-500">USD</span></span>
-          </div>
-
-          <button 
-            type="button"
-            onclick={() => agregarAlCarrito('Paquete Solo Videos (Acceso Grabado)', 50, 'Curso')}
-            class="w-full bg-white hover:bg-[#0071e3] text-slate-900 hover:text-white font-bold text-sm py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-slate-300 hover:border-[#0071e3]"
-          >
-            <span>Agregar al carrito</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Producto 2 -->
-      <div class="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 shadow-xl shadow-black/5 hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group relative">
-        <div class="absolute -top-3.5 right-6 bg-amber-500 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
-          Cupos Exclusivos
-        </div>
-
-        <div>
-          <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
-            <video 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-            >
-              <source src="/agro.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-              VIP / Personalizado
-            </span>
-          </div>
-
-          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Acompañamiento Directo</span>
-          <h3 class="text-2xl font-black mt-1 mb-2 text-slate-900">Videos + Mentoría 1 a 1</h3>
-          <p class="text-sm text-slate-600 mb-6 leading-relaxed">
-            Diseñado para acelerar tu curva de aprendizaje, resolver dudas técnicas específicas de inmediato y recibir retroalimentación directa sobre tus proyectos.
-          </p>
-
-          <div class="space-y-2 mb-8 text-sm text-slate-700 border-t border-slate-200 pt-4 font-medium">
-            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Todo el contenido del Paquete Solo Videos</div>
-            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Mentoría individual</div>
-            <div class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Revisión de código personalizada y soporte prioritario por chat</div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
-            <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
-            <span class="text-3xl font-black text-slate-900">$150 <span class="text-sm font-normal text-slate-500">USD</span></span>
-          </div>
-
-          <button 
-            type="button"
-            onclick={() => agregarAlCarrito('Videos + Mentoría 1 a 1 (VIP)', 150, 'Mentoría')}
-            class="w-full bg-gradient-to-r from-[#0071e3] via-blue-600 to-sky-500 hover:from-[#0066cc] hover:to-blue-500 text-white font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <span>Agregar al carrito</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
