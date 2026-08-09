@@ -4,6 +4,26 @@
     let mostrarNotificacion = $state(false);
     let mensajeNotificacion = $state('');
     let carritoAbierto = $state(false);
+    let metodoPagoSeleccionado = $state('Pago Móvil (Venezuela)');
+
+    const metodosPago = [
+        { nombre: 'Pago Móvil', pais: 'Venezuela', icono: 'twemoji:flag-venezuela' },
+        { nombre: 'PayPal', pais: 'Internacional', icono: 'logos:paypal' },
+        { nombre: 'Binance', pais: 'Cripto', icono: 'fluent-emoji-flat:card-file-box' },
+        { nombre: 'Zinli', pais: 'Internacional', icono: 'fluent-emoji-flat:credit-card' },
+        { nombre: 'Western Union', pais: 'Internacional', icono: 'simple-icons:westernunion' },
+        { nombre: 'Nequi', pais: 'Colombia', icono: 'twemoji:flag-colombia' },
+        { nombre: 'BBVA', pais: 'México', icono: 'twemoji:flag-mexico' },
+        { nombre: 'Zelle', pais: 'EE.UU.', icono: 'simple-icons:zelle' },
+        { nombre: 'Banco Pichincha', pais: 'Ecuador', icono: 'twemoji:flag-ecuador' },
+        { nombre: 'Bizum', pais: 'España', icono: 'twemoji:flag-spain' },
+        { nombre: 'Pix', pais: 'Brasil', icono: 'twemoji:flag-brazil' },
+        { nombre: 'Banco Estado', pais: 'Chile', icono: 'twemoji:flag-chile' },
+        { nombre: 'Yape', pais: 'Perú', icono: 'twemoji:flag-peru' },
+        { nombre: 'Mercado Pago', pais: 'Argentina', icono: 'simple-icons:mercadopago' },
+        { nombre: 'Banreservas', pais: 'Rep. Dominicana', icono: 'twemoji:flag-dominican-republic' },
+        { nombre: 'Prex', pais: 'Uruguay', icono: 'twemoji:flag-uruguay' }
+    ];
 
     function agregarAlCarrito(titulo: string, precio: number, tipo: string) {
         const existe = carrito.some(item => item.titulo === titulo);
@@ -38,13 +58,19 @@
         const mensaje = `Hola, quiero finalizar la compra de los siguientes programas educativos:
 ${detalleCursos}
 - Total a pagar: $${total} USD
+- Método de pago seleccionado: ${metodoPagoSeleccionado}
 
-Por favor, indíquenmen los pasos para procesar el pago.`;
+Por favor, indíquenme los pasos para procesar el pago.`;
 
         const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
     }
 </script>
+
+<!-- Carga de Iconify para los iconos de banderas y pasarelas -->
+<svelte:head>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+</svelte:head>
 
 <!-- Notificación flotante superior -->
 {#if mostrarNotificacion}
@@ -72,7 +98,7 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 
 <!-- Panel Desplegable del Carrito Flotante -->
 {#if carritoAbierto}
-    <div class="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[380px] bg-slate-900 text-white rounded-3xl p-6 border border-slate-700 shadow-2xl text-left">
+    <div class="fixed bottom-24 right-6 z-50 w-[360px] sm:w-[400px] bg-slate-900 text-white rounded-3xl p-6 border border-slate-700 shadow-2xl text-left">
         <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
             <h3 class="text-base font-bold text-white flex items-center gap-2">
                 <span>🛒 Tu Carrito</span>
@@ -84,7 +110,7 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
         {#if carrito.length === 0}
             <p class="text-xs text-slate-400 text-center py-6">Tu carrito está vacío. Agrega un curso para comenzar.</p>
         {:else}
-            <div class="space-y-3 mb-4 max-h-60 overflow-y-auto pr-1">
+            <div class="space-y-3 mb-4 max-h-44 overflow-y-auto pr-1">
                 {#each carrito as item, index}
                     <div class="flex items-center justify-between bg-slate-800 p-3 rounded-2xl border border-slate-700 text-xs">
                         <div>
@@ -94,6 +120,31 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
                         <button onclick={() => eliminarDelCarrito(index)} class="text-rose-400 hover:text-rose-300 font-semibold p-1 cursor-pointer">Eliminar</button>
                     </div>
                 {/each}
+            </div>
+
+            <!-- Selector de Método de Pago con Iconos de Iconify -->
+            <div class="mb-4 pt-3 border-t border-slate-800">
+                <label for="metodo-pago-select" class="block text-xs font-semibold text-slate-300 mb-1.5">Selecciona tu método de pago:</label>
+                
+                <div class="space-y-2">
+                    <div class="grid grid-cols-1 gap-1 max-h-40 overflow-y-auto bg-slate-800/50 p-2 rounded-2xl border border-slate-700/80">
+                        {#each metodosPago as metodo}
+                            <button
+                                type="button"
+                                onclick={() => metodoPagoSeleccionado = `${metodo.nombre} (${metodo.pais})`}
+                                class={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all cursor-pointer ${metodoPagoSeleccionado === `${metodo.nombre} (${metodo.pais})` ? 'bg-blue-600 text-white font-bold shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white'}`}
+                            >
+                                <div class="flex items-center gap-2.5">
+                                    <span class="iconify text-base shrink-0" data-icon={metodo.icono}></span>
+                                    <span>{metodo.nombre}</span>
+                                </div>
+                                <span class={`text-[10px] px-2 py-0.5 rounded-full ${metodoPagoSeleccionado === `${metodo.nombre} (${metodo.pais})` ? 'bg-blue-700 text-blue-100' : 'bg-slate-700 text-slate-400'}`}>
+                                    {metodo.pais}
+                                </span>
+                            </button>
+                        {/each}
+                    </div>
+                </div>
             </div>
 
             <div class="pt-3 border-t border-slate-800 space-y-3">
@@ -117,7 +168,6 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 
 <!-- HERO PRINCIPAL -->
 <section class="bg-white text-slate-900 pt-24 sm:pt-32 md:pt-40 pb-28 sm:pb-36 px-4 sm:px-6 lg:px-8 text-center font-sans relative overflow-hidden border-b border-blue-500/20">
-  <!-- Efectos de luz ambiental de alto rendimiento y conversión -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,113,227,0.1)_0%,transparent_65%)]"></div>
   </div>
@@ -129,12 +179,10 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
       Crea páginas web profesionales y <span class="bg-gradient-to-r from-[#0071e3] via-blue-600 to-sky-500 bg-clip-text text-transparent inline-block mt-1 drop-shadow-[0_0_35px_rgba(0,113,227,0.3)]">gana dinero real</span> haciéndolo.
     </h1>
 
-    <!-- Subtítulo persuasivo -->
     <p class="text-base sm:text-xl md:text-2xl font-normal text-slate-600 max-w-3xl mb-12 leading-relaxed">
       Domina herramientas modernas, automatiza procesos con <strong class="text-slate-900 font-bold bg-[#0071e3]/10 px-2 py-0.5 rounded border border-[#0071e3]/25">Inteligencia Artificial</strong> y conviértete en un creador web altamente cotizado en el mercado global.
     </p>
 
-    <!-- CTAs de conversión con el estilo de botón solicitado -->
     <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center items-center">
     <a 
   href="#catalogo-cursos" 
@@ -145,7 +193,6 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 </a>
     </div>
 
-    <!-- Indicadores de confianza rápidos -->
     <div class="mt-16 flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-slate-600 text-xs sm:text-sm font-medium border-t border-slate-200 pt-8 w-full max-w-4xl">
       <div class="flex items-center gap-2">
         <svg class="w-5 h-5 text-[#0071e3]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -163,14 +210,13 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 
   </div>
 </section>
+
 <section id="catalogo-cursos" class="py-24 px-4 bg-white text-slate-900 font-sans border-b border-slate-200 relative overflow-hidden">
-  <!-- Efectos de luz ambiental de alto rendimiento -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[radial-gradient(circle_at_center,rgba(0,113,227,0.08)_0%,transparent_70%)]"></div>
   </div>
 
   <div class="max-w-[1200px] mx-auto text-center relative z-10">
-  
     <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight text-slate-900 uppercase">
       Elige tu nivel de formación
     </h2>
@@ -179,18 +225,11 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-stretch">
-      
       <!-- Producto 1 -->
       <div class="bg-[#f8fafc] rounded-3xl p-8 border border-slate-200 shadow-xl shadow-black/5 hover:shadow-2xl hover:border-[#0071e3]/40 transition-all duration-300 flex flex-col justify-between group">
         <div>
           <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
-            <video 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-            >
+            <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted loop playsinline>
               <source src="/slogan.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -213,14 +252,21 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
         </div>
 
         <div>
-          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-red-100 text-red-600 text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+              50% Descuento Lanzamiento
+            </span>
+            <span class="text-sm text-slate-400 line-through font-semibold">$50 USD</span>
+          </div>
+
+          <div class="flex items-center justify-between mb-4 pt-2 border-t border-slate-200">
             <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
-            <span class="text-3xl font-black text-slate-900">$50 <span class="text-sm font-normal text-slate-500">USD</span></span>
+            <span class="text-3xl font-black text-slate-900">$25 <span class="text-sm font-normal text-slate-500">USD</span></span>
           </div>
 
           <button 
             type="button"
-            onclick={() => agregarAlCarrito('Paquete Solo Videos (Acceso Grabado)', 50, 'Curso')}
+            onclick={() => agregarAlCarrito('Paquete Solo Videos (Acceso Grabado)', 25, 'Curso')}
             class="w-full bg-white hover:bg-[#0071e3] text-slate-900 hover:text-white font-bold text-sm py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-slate-300 hover:border-[#0071e3]"
           >
             <span>Agregar al carrito</span>
@@ -237,13 +283,7 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
 
         <div>
           <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 mb-6 shadow-inner">
-            <video 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              autoplay 
-              muted 
-              loop 
-              playsinline
-            >
+            <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted loop playsinline>
               <source src="/agro.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -266,14 +306,21 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
         </div>
 
         <div>
-          <div class="flex items-center justify-between mb-4 pt-4 border-t border-slate-200">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-red-100 text-red-600 text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+              50% Descuento Lanzamiento
+            </span>
+            <span class="text-sm text-slate-400 line-through font-semibold">$150 USD</span>
+          </div>
+
+          <div class="flex items-center justify-between mb-4 pt-2 border-t border-slate-200">
             <span class="text-xs text-slate-500 font-semibold">Inversión única</span>
-            <span class="text-3xl font-black text-slate-900">$150 <span class="text-sm font-normal text-slate-500">USD</span></span>
+            <span class="text-3xl font-black text-slate-900">$75 <span class="text-sm font-normal text-slate-500">USD</span></span>
           </div>
 
           <button 
             type="button"
-            onclick={() => agregarAlCarrito('Videos + Mentoría 1 a 1 (VIP)', 150, 'Mentoría')}
+            onclick={() => agregarAlCarrito('Videos + Mentoría 1 a 1 (VIP)', 75, 'Mentoría')}
             class="w-full bg-gradient-to-r from-[#0071e3] via-blue-600 to-sky-500 hover:from-[#0066cc] hover:to-blue-500 text-white font-black text-sm py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Agregar al carrito</span>
@@ -281,7 +328,6 @@ Por favor, indíquenmen los pasos para procesar el pago.`;
           </button>
         </div>
       </div>
-
     </div>
   </div>
 </section>
