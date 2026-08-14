@@ -1,8 +1,7 @@
 <script lang="ts">
   import "./layout.css";
-  import favicon from "$lib/assets/favicon.svg";
   import Icon from "@iconify/svelte";
-  import { page } from "$app/state"; // Importación para Svelte 5 / SvelteKit
+  import { page } from "$app/stores"; // Usamos la forma tradicional de stores si la nueva da problemas
 
   let { children } = $props();
   let menuOpen = $state(false);
@@ -14,10 +13,14 @@
     }
   }
 
-  // Comprueba si estamos en la página de inicio
-  let isHome = $derived(page.url.pathname === "/");
+  // Usamos un store clásico para evitar pantallas en blanco por SSR
+  let currentPath = "";
+  page.subscribe(($page) => {
+    currentPath = $page.url.pathname;
+  });
 
-  // Función auxiliar para generar la ruta correcta según la página actual
+  let isHome = $derived(currentPath === "/");
+
   function getHref(path: string) {
     if (path.startsWith("#")) {
       return isHome ? path : "/" + path;
@@ -27,7 +30,22 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png" />
+  
+  <!-- Título Atractivo para Google -->
+  <title>Creamos y Diseñamos tu Página Web | EBWebCode & Design</title>
+  
+  <!-- Metadatos para SEO -->
+  <meta name="description" content="¿Necesitas una página web? En EBWebCode & Design diseñamos y desarrollamos sitios web, tiendas online y aplicaciones a medida que impulsan tus ventas y destacan tu marca." />
+  <meta name="keywords" content="hacer pagina web, diseño web, desarrollo web, crear pagina web, tiendas online, e-commerce, diseño UX/UI, EBWebCode" />
+  
+  <!-- Open Graph para Redes Sociales (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:title" content="Creamos y Diseñamos tu Página Web | EBWebCode" />
+  <meta property="og:description" content="Diseñamos sitios web profesionales y tiendas online que convierten visitantes en clientes. ¡Solicita tu propuesta gratuita!" />
+  <meta property="og:type" content="website" />
+  <!-- Opcional: Agrega una imagen para cuando compartas el enlace -->
+  <!-- <meta property="og:image" content="/ruta-a-tu-imagen-destacada.png" /> -->
 </svelte:head>
 
 <!-- Header Flotante Estilo Apple Adaptado a Diseño Claro -->
