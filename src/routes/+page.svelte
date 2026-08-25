@@ -636,7 +636,7 @@
               playsinline
               webkit-playsinline
             >
-              <source src="gaming.mp4" type="video/mp4" />
+              <source src="ebgaming2.mp4" type="video/mp4" />
               Tu navegador no soporta la reproducción de videos.
             </video>
           </div>
