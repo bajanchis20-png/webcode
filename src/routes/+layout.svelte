@@ -1,7 +1,7 @@
 <script lang="ts">
   import "./layout.css";
   import Icon from "@iconify/svelte";
-  import { page } from "$app/stores"; // Usamos la forma tradicional de stores si la nueva da problemas
+  import { page } from "$app/stores";
 
   let { children } = $props();
   let menuOpen = $state(false);
@@ -13,7 +13,6 @@
     }
   }
 
-  // Usamos un store clásico para evitar pantallas en blanco por SSR
   let currentPath = "";
   page.subscribe(($page) => {
     currentPath = $page.url.pathname;
@@ -21,11 +20,13 @@
 
   let isHome = $derived(currentPath === "/");
 
-  function getHref(path: string) {
-    if (path.startsWith("#")) {
-      return isHome ? path : "/" + path;
+  // Función para manejar clics en anclas desde cualquier subpágina
+  function handleAnchorClick(e: MouseEvent, hash: string) {
+    if (!isHome) {
+      e.preventDefault();
+      window.location.href = `/${hash}`;
     }
-    return path;
+    if (menuOpen) toggleMenu();
   }
 </script>
 
@@ -44,8 +45,6 @@
   <meta property="og:title" content="Creamos y Diseñamos tu Página Web | EBWebCode" />
   <meta property="og:description" content="Diseñamos sitios web profesionales y tiendas online que convierten visitantes en clientes. ¡Solicita tu propuesta gratuita!" />
   <meta property="og:type" content="website" />
-  <!-- Opcional: Agrega una imagen para cuando compartas el enlace -->
-  <!-- <meta property="og:image" content="/ruta-a-tu-imagen-destacada.png" /> -->
 </svelte:head>
 
 <!-- Header Flotante Estilo Apple Adaptado a Diseño Claro -->
@@ -67,15 +66,18 @@
     >
       <a href="/" class="hover:text-slate-900 transition-colors">Inicio</a>
       <a
-        href={getHref("#paquetes")}
+        href="/#paquetes"
+        onclick={(e) => handleAnchorClick(e, '#paquetes')}
         class="hover:text-slate-900 transition-colors">Servicios</a
       >
       <a
-        href={getHref("#proyectos")}
+        href="/#proyectos"
+        onclick={(e) => handleAnchorClick(e, '#proyectos')}
         class="hover:text-slate-900 transition-colors">Proyectos</a
       >
       <a
-        href={getHref("#contacto")}
+        href="/#contacto"
+        onclick={(e) => handleAnchorClick(e, '#contacto')}
         class="hover:text-slate-900 transition-colors">Contacto</a
       >
       <a href="/educacion" class="hover:text-slate-900 transition-colors"
@@ -94,7 +96,8 @@
         Comenzar
       </a>
       <a
-        href={getHref("#paquetes")}
+        href="/#paquetes"
+        onclick={(e) => handleAnchorClick(e, '#paquetes')}
         aria-label="Planes y Paquetes"
         class="text-slate-600 hover:text-slate-900 transition-colors p-1"
       >
@@ -105,7 +108,8 @@
     <!-- Controles Móviles -->
     <div class="flex items-center space-x-2 md:hidden">
       <a
-        href={getHref("#paquetes")}
+        href="/#paquetes"
+        onclick={(e) => handleAnchorClick(e, '#paquetes')}
         aria-label="Planes y Paquetes"
         class="text-slate-700 hover:text-slate-900 transition-colors p-1.5"
       >
@@ -152,20 +156,20 @@
           >Inicio</a
         >
         <a
-          href={getHref("#paquetes")}
-          onclick={toggleMenu}
+          href="/#paquetes"
+          onclick={(e) => handleAnchorClick(e, '#paquetes')}
           class="block text-xl font-semibold text-slate-600 py-2 border-b border-slate-200 animate-fade-in-down"
           >Servicios</a
         >
         <a
-          href={getHref("#proyectos")}
-          onclick={toggleMenu}
+          href="/#proyectos"
+          onclick={(e) => handleAnchorClick(e, '#proyectos')}
           class="block text-xl font-semibold text-slate-600 py-2 border-b border-slate-200 animate-fade-in-down"
           >Proyectos</a
         >
         <a
-          href={getHref("#contacto")}
-          onclick={toggleMenu}
+          href="/#contacto"
+          onclick={(e) => handleAnchorClick(e, '#contacto')}
           class="block text-xl font-semibold text-slate-600 py-2 border-b border-slate-200 animate-fade-in-down"
           >Contacto</a
         >
@@ -225,19 +229,22 @@
           <ul class="space-y-2.5">
             <li>
               <a
-                href={getHref("#paquetes")}
+                href="/#paquetes"
+                onclick={(e) => handleAnchorClick(e, '#paquetes')}
                 class="hover:text-slate-900 transition-colors">Desarrollo Web</a
               >
             </li>
             <li>
               <a
-                href={getHref("#paquetes")}
+                href="/#paquetes"
+                onclick={(e) => handleAnchorClick(e, '#paquetes')}
                 class="hover:text-slate-900 transition-colors">E-commerce</a
               >
             </li>
             <li>
               <a
-                href={getHref("#paquetes")}
+                href="/#paquetes"
+                onclick={(e) => handleAnchorClick(e, '#paquetes')}
                 class="hover:text-slate-900 transition-colors"
                 >Arquitectura UI/UX</a
               >
@@ -251,13 +258,15 @@
           <ul class="space-y-2.5">
             <li>
               <a
-                href={getHref("#proyectos")}
+                href="/#proyectos"
+                onclick={(e) => handleAnchorClick(e, '#proyectos')}
                 class="hover:text-slate-900 transition-colors">Casos de Éxito</a
               >
             </li>
             <li>
               <a
-                href={getHref("#contacto")}
+                href="/#contacto"
+                onclick={(e) => handleAnchorClick(e, '#contacto')}
                 class="hover:text-slate-900 transition-colors"
                 >Soporte Directo</a
               >
